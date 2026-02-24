@@ -1,0 +1,38 @@
+# Inherit from vendor tree
+$(call inherit-product, vendor/client/husky/husky-vendor.mk)
+
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_DIR)/overlay
+
+# HALs
+PRODUCT_PACKAGES += \
+    android.hardware.audio@6.0-impl \
+    android.hardware.bluetooth@1.0-impl \
+    android.hardware.camera.provider@2.4-impl \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.sensors@1.0-impl \
+    android.hardware.wifi@1.0-service
+
+# MTK Specific
+PRODUCT_PACKAGES += \
+    libpureshot \
+    libfeature_3dnr
+
+# Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.mediatek.platform=MT6761 \
+    ro.hardware.egl=meow
+PRODUCT_COPY_FILES += $(LOCAL_DIR)/rootdir/etc/fstab.mt6761:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.mt6761
+
+# Init scripts
+PRODUCT_PACKAGES += \
+    init.mt6761.rc \
+    init.mtk.rc \
+    init.connectivity.rc \
+    fstab.mt6761
+
+# Include all .rc files from vendor/etc/init in the build
+PRODUCT_COPY_FILES += \
+    $(foreach f,$(wildcard $(LOCAL_DIR)/rootdir/etc/init/*.rc),$(f):$(TARGET_COPY_OUT_VENDOR)/etc/init/$(notdir $(f))) \
+    $(foreach f,$(wildcard $(LOCAL_DIR)/rootdir/etc/init/hw/*.rc),$(f):$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/$(notdir $(f)))
+
