@@ -21,7 +21,14 @@ PRODUCT_PACKAGES += \
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.mediatek.platform=MT6761 \
-    ro.hardware.egl=meow
+    ro.hardware.egl=meow \
+    ro.sf.lcd_density=220 \
+    qemu.hw.mainkeys=1 \
+    ro.control_fallback=1
+
+# Keylayouts
+PRODUCT_COPY_FILES += \
+    $(foreach f,$(wildcard $(LOCAL_DIR)/rootdir/usr/keylayout/*.kl),$(f):$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/$(notdir $(f)))
 PRODUCT_COPY_FILES += $(LOCAL_DIR)/rootdir/etc/fstab.mt6761:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.mt6761
 
 # Init scripts
