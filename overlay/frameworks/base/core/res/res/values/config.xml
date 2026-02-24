@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Device has a physical keypad -->
+    <bool name="config_hasKeyboard">true</bool>
+    <int name="config_keyboardType">2</int>
+    
+    <!-- Enable D-Pad navigation by default -->
+    <bool name="config_allowAllRotations">false</bool>
+    <bool name="config_showNavigationBar">false</bool>
+    
+    <!-- Optimize for low RAM (Go Edition) -->
+    <bool name="config_low_ram">true</bool>
+</resources>

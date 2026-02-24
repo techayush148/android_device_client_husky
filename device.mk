@@ -43,3 +43,16 @@ PRODUCT_COPY_FILES += \
     $(foreach f,$(wildcard $(LOCAL_DIR)/rootdir/etc/init/*.rc),$(f):$(TARGET_COPY_OUT_VENDOR)/etc/init/$(notdir $(f))) \
     $(foreach f,$(wildcard $(LOCAL_DIR)/rootdir/etc/init/hw/*.rc),$(f):$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/$(notdir $(f)))
 
+
+# Low RAM Optimization (Go Edition)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.low_ram=true \
+    ro.lmk.low=1001 \
+    ro.config.max_starting_bg=2 \
+    persist.sys.force_highendgfx=false
+
+# Keypad Focus Navigation
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hw.keypad=true \
+    ro.ui.cursor=true
+
