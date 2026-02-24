@@ -1455,6 +1455,7 @@ firmware/BT_FW.cfg
 firmware/rgx.sh
 firmware/aw87xxx_acf.bin
 firmware/soc1_0_ram_wifi_1_1_hdr.bin
+system/system_ext/priv-app/MtkLauncher3QuickStep/MtkLauncher3QuickStep.apk
 system/app/NineKeyIme/lib/arm/libWtwdLatin.so
 system/app/NineKeyIme/lib/arm/libWtwdZhuyin.so
 system/app/NineKeyIme/lib/arm/libWtwdPinyin.so
