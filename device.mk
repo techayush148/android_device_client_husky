@@ -84,3 +84,10 @@ PRODUCT_PACKAGES_REMOVE += \
     Trebuchet \
     TrebuchetQuickStep
 
+
+# Audio & Media Configs
+PRODUCT_COPY_FILES += \
+    $(LOCAL_DIR)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(LOCAL_DIR)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    $(LOCAL_DIR)/configs/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
+
