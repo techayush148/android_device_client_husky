@@ -24,7 +24,29 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.egl=meow \
     ro.sf.lcd_density=220 \
     qemu.hw.mainkeys=1 \
-    ro.control_fallback=1
+    ro.control_fallback=1 \
+    ro.virtual_ab.enabled=true \
+    ro.virtual_ab.compression.enabled=true \
+    ro.adb.secure=0 \
+    persist.sys.usb.config=mtp,adb
+
+# Graphics
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.surface_flinger.primary_display_orientation=ORIENTATION_0 \
+    ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
+    debug.sf.disable_backpressure=1 \
+    debug.renderengine.backend=skiagl
+
+# Dalvik
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
+# RIL
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.rild.libpath=mtk-ril.so \
+    vendor.rild.libargs=-d /dev/ttyC0 \
+    persist.vendor.radio.msimmode=dsds \
+    ro.telephony.default_network=9,9,9,9
 
 # Keylayouts
 PRODUCT_COPY_FILES += \

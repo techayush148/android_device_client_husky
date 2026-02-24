@@ -53,8 +53,25 @@ DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 # Security
 BOARD_USES_ADB_RECOVERY_COMMANDS := true
 
+# A/B
+AB_OTA_UPDATER := true
+AB_OTA_PARTITIONS := \
+    boot \
+    system \
+    vendor \
+    product \
+    vbmeta \
+    vbmeta_system \
+    vbmeta_vendor
+
 # Lineage
 TARGET_USES_PREBUILT_DYNAMIC_PARTITIONS := true
+BOARD_USES_RECOVERY_AS_BOOT := true
+BOARD_USES_METADATA_PARTITION := true
+BOARD_ROOT_EXTRA_FOLDERS := metadata
+PRODUCT_VIRTUAL_AB_COMPRESSION := true
+PRODUCT_VIRTUAL_AB_COMPRESSION_METHOD := lz4
+
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/kernel
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/dtbo.img
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
