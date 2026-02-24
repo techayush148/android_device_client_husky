@@ -10,4 +10,6 @@
     
     <!-- Optimize for low RAM (Go Edition) -->
     <bool name="config_low_ram">true</bool>
+    <!-- Specify the component name for the default launcher -->
+    <string name="config_launcherComponentName" translatable="false">com.android.launcher3/com.android.launcher3.Launcher</string>
 </resources>

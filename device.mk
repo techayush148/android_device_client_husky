@@ -56,3 +56,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hw.keypad=true \
     ro.ui.cursor=true
 
+
+# Remove Trebuchet and set MtkLauncher as default
+PRODUCT_PACKAGES_REMOVE += \
+    Trebuchet \
+    TrebuchetQuickStep
+
