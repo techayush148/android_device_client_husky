@@ -24,7 +24,8 @@ BOARD_HAS_MTK_HARDWARE := true
 # Kernel
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_BOOTIMG_HEADER_VERSION := 2
-BOARD_KERNEL_CMDLINE := bootconfig
+BOARD_KERNEL_CMDLINE := console=tty0 console=ttyS0,921600n1 vmalloc=400M slub_debug=OFZPU page_owner=on swiotlb=noforce cgroup.memory=nosocket,nokmem androidboot.hardware=mt6761 maxcpus=8 loop.max_part=7 firmware_class.path=/vendor/firmware
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 
@@ -59,4 +60,3 @@ BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/dtbo.img
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
